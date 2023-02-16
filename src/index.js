@@ -116,7 +116,7 @@ const selectImages = (btns, images) => {
         btn.addEventListener('click', e => {
             let currentBtn = e.currentTarget.dataset.type;
             for(let i = 0; i < images.length; i++) {
-                images[i].src = `assets/img/${currentBtn}/${i + 1}.jpg`;
+                images[i].src = `assets/img/${currentBtn}/${i + 1}.webp`;
                 images[i].alt = `${currentBtn} photo`;
             }
         })
