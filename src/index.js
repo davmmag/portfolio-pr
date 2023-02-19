@@ -1,4 +1,4 @@
-const i18Obj = {
+const LANGUAGE_TRANSLATION_DATA = {
     'en': {
         'skills': 'Skills',
         'portfolio': 'Portfolio',
@@ -84,62 +84,77 @@ const i18Obj = {
         'message': 'Сообщение'
     }
 }
-
 const MENU = document.querySelector('.menu-btn');
-const THEME_BTN = document.querySelector('.header__theme');
-const BTN_CONTROLS = document.querySelectorAll('.portfolio__btn');
-const IMAGES = document.querySelectorAll('.portfolio__img img');
-const BTNS_LANG = document.querySelectorAll('.lang-block__btn');
-const TRANSLATE_ITEMS = document.querySelectorAll('[data-i18]');
+const THEME_BTN = document.querySelector('[data-theme]');
+const PORTFOLIO_SWITCHBOARD = document.querySelector('.portfolio__switchboard');
+const LANGUAGE_BLOCK = document.querySelector('.lang-block');
+const IMAGES = Array.from(document.querySelectorAll('.portfolio__img img'));
+const CHANGE_LANGUAGE_BUTTONS = document.querySelectorAll('.lang-block__btn');
+const TRANSLATABLE_ELEMENTS = Array.from(document.querySelectorAll('[data-i18]'));
+document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.className = localStorage.getItem('theme');
+});
 
-const activeMenu = (event, element) => {
+
+const activateMenu = (event, element) => {
     event.preventDefault();
     element.classList.toggle('menu-btn__active');
     document.querySelector('.burger').classList.toggle('burger-active');
-}
-
-MENU.addEventListener('click', e => activeMenu(e, MENU))
+};
    
-document.addEventListener('DOMContentLoaded', () => {
-    document.documentElement.className = localStorage.getItem('theme');
-})
 const setTheme = (theme) => {
     localStorage.setItem('theme', theme);
     document.documentElement.className = theme;
     THEME_BTN.classList.toggle('header__theme--night');
-}
-const changeTheme = () => localStorage.getItem('theme') === 'dark' ? setTheme('light') : setTheme('dark');
-THEME_BTN.addEventListener('click', changeTheme);
+};
 
-const selectImages = (btns, images) => {
-    for(let btn of btns) {
-        btn.addEventListener('click', e => {
-            let currentBtn = e.currentTarget.dataset.type;
-            for(let i = 0; i < images.length; i++) {
-                images[i].src = `assets/img/${currentBtn}/${i + 1}.webp`;
-                images[i].alt = `${currentBtn} photo`;
-            }
-        })
+const changingActiveElement = (element, nameOfActive) => {
+  const ACTIVE_ELEMENT = document.querySelector(`.${nameOfActive}`);
+  element.classList.add(nameOfActive);
+  ACTIVE_ELEMENT.classList.remove(nameOfActive);
+  console.log(document.querySelector('body'));
+};
+
+const changingActiveImages = (images, targetName) => {
+  images.forEach((img, index) => {
+    const newSrc = `assets/img/${targetName}/${index + 1}.webp`;
+    img.src = newSrc;
+    img.alt = `${targetName} photo`;
+  });    
+};
+
+const changingStateOfGallery = (target, images) => {
+    const targetType = target.dataset.type;
+    if (targetType) {
+        changingActiveElement(target, 'portfolio__switch--active');
+        changingActiveImages(images, targetType);
     }
-}
+};
 
-selectImages(BTN_CONTROLS, IMAGES);
-
-const getTranslate = (lang) => {
-    let trs = Array.from(TRANSLATE_ITEMS) 
-    for(let key in i18Obj[lang]) {
-         for(let item of trs) {
-             if(item.dataset.i18 == key) {
-                if(item.placeholder) item.placeholder = i18Obj[lang][key];
-                item.textContent = i18Obj[lang][key];
+const translateElements = (lang) => {
+    localStorage.setItem('lang', lang);
+    for (let key in LANGUAGE_TRANSLATION_DATA[lang]) {
+         for(let item of TRANSLATABLE_ELEMENTS) {
+             if(item.dataset.i18 === key) {
+                 if (item.placeholder) item.placeholder = LANGUAGE_TRANSLATION_DATA[lang][key];
+                 item.textContent = LANGUAGE_TRANSLATION_DATA[lang][key];
              }
          }
     }
+};
+
+const getCurrentLanguage = (activeLang) => {
+  if (activeLang === 'russian') translateElements('ru');
+  if (activeLang === 'english') translateElements('en');
+  else {
+    const lang = localStorage.getItem('lang') || 'en';
+    translateElements(lang);
+  }
 }
 
-for(let btn of BTNS_LANG) {
-    btn.addEventListener('click', e => {
-        if (e.target.dataset.lang === 'russian') getTranslate('ru');
-        else getTranslate('en');
-    })
-}
+getCurrentLanguage();
+LANGUAGE_BLOCK.addEventListener('click', (e) => getCurrentLanguage(e.target.dataset.lang));
+MENU.addEventListener('click', e => activateMenu(e, MENU));
+const changeTheme = () => localStorage.getItem('theme') === 'dark' ? setTheme('light') : setTheme('dark');
+THEME_BTN.addEventListener('click', changeTheme);
+PORTFOLIO_SWITCHBOARD.addEventListener('click', (e) => changingStateOfGallery(e.target, IMAGES));
