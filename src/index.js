@@ -123,7 +123,7 @@ const changingActiveImages = (images, targetName) => {
   });    
 };
 
-const changingStateOfGallery = (target, images) => {
+const changingStateOfGallery = async (target, images) => {
     const targetType = target.dataset.type;
     if (targetType) {
         changingActiveElement(target, 'portfolio__switch--active');
