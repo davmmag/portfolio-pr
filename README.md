@@ -1,2 +1,2 @@
 # portfolio-pr
-https://davmmag.github.io/online-zoo/build/index.html
+https://davmmag.github.io/portfolio-pr/portfolio/build/index.html
