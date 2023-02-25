@@ -1,0 +1,72 @@
+:root {
+  --color-mongoose: #bdae82;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --width: 100%;
+
+  --xl-font-size: 3.2rem;
+  --lg-font-size: 3.2rem;
+  --md-font-size: 2.8rem;
+  --sm-font-size: 2rem;
+  --xs-font-size: 1.8rem;
+  --container-size: 1400px;
+  --p-container: 15px;
+  --font-f: 'Inter', Verdana, Tahoma, sans-serif;
+  --font-f-2: 'Merriweather', Helvetica, Arial, serif;
+}
+
+@media screen and (min-width: 600px) {
+  :root {
+    --p-container: 64px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  :root {
+    --xl-font-size: 6rem;
+    --lg-font-size: 4rem;
+    --p-container: 20px;
+  }
+}
+
+.light {
+  --first-color: #ffffff;
+  --second-color: #000000;
+  --third-color: #000000;
+  --fcb: url(../assets/icons/facebook-dark.svg);
+  --inst: url(../assets/icons/insta-dark.svg);
+  --twt: url(../assets/icons/twiiter-dark.svg);
+  --pint: url(../assets/icons/pinterest-dark.svg);
+  --hero-bg: url(../assets/img/bg.jpg);
+  --contacts-bg: url(../assets/img/contacts-bg-light.jpg);
+  --theme-icon: url(../assets/icons/night_theme.svg);
+  --form-bg: rgba(255, 255, 255, 0.5);
+  --button-main-bg: #ffffff;
+  --button-main-bg-hover: #1c1c1c;
+  --button-main-clr-hov: #bdae82;
+  --switch-bg: #bdae82;
+  --switch-bg-active: #000000;
+  --camera-icon: #1c1c1c;
+  --link-hover: #8c6e14;
+}
+
+.dark {
+  --first-color: #000000;
+  --second-color: #bdae82;
+  --third-color: #ffffff;
+  --fcb: url(../assets/icons/facebook.svg);
+  --inst: url(../assets/icons/inst.svg);
+  --twt: url(../assets/icons/twitter.svg);
+  --pint: url(../assets/icons/pintrest.svg);
+  --hero-bg: url(../assets/img/hero-bg.jpg);
+  --contacts-bg: url(../assets/img/contacts-bg.jpg);
+  --theme-icon: url(../assets/icons/light_theme.svg);
+  --form-bg: rgba(0, 0, 0, 0.5);
+  --button-main-bg: #bdae82;
+  --button-main-bg-hover: var(--button-main-bg);
+  --button-main-clr-hov: #ffffff;
+  --switch-bg: #000000;
+  --switch-bg-active: #bdae82;
+  --camera-icon: #ffffff;
+  --link-hover: #bdaE82;
+}

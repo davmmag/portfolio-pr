@@ -1,0 +1,127 @@
+.twitter,
+.instagram,
+.facebook,
+.pinterest {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.twitter {
+  background-image: var(--twt);
+}
+
+.instagram {
+  background-image: var(--inst);
+}
+
+.facebook {
+  background-image: var(--fcb);
+}
+
+.pinterest {
+  background-image: var(--pint);
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: all .2s ease-in-out;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-f);
+  background-color: var(--first-color);
+  color: var(--second-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-f-2);
+}
+
+h1 {
+  font-size: var(--xl-font-size);
+  line-height: 2;
+  color: var(--color-white);
+}
+
+h2 {
+  font-size: var(--lg-font-size);
+  line-height: 1.25;
+  color: var(--second-color);
+  text-align: center;
+}
+
+h4 {
+  font-size: var(--sm-font-size);
+  line-height: 2;
+  color: var(--color-mongoose);
+}
+
+.title {
+  color: var(--second-color);
+}
+
+.container {
+  max-width: calc(var(--container-size) + (var(--p-container) * 2));
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--p-container);
+}
+
+img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 480px) {
+  .title-line {
+    max-width: 364px;
+    width: 100%;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  .title-line::before,
+  .title-line::after {
+    display: block;
+    content: "";
+    height: 2px;
+    max-width: 279px;
+    width: 100%;
+    background-color: var(--second-color);
+  }
+}
+
+@media screen and (min-width: 790px) {
+  .title-line {
+    max-width: 700px;
+  }
+}

@@ -1,0 +1,23 @@
+.logo {
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.logo__icon {
+  fill: var(--camera-icon);
+  max-width: 100%;
+  width: 30px;
+  height: 20px;
+}
+
+.logo:hover .logo__icon {
+  fill: var(--color-mongoose);
+}
+
+@media screen and (min-width: 480px) {
+  .logo__icon {
+    width: 50px;
+    height: 40px;
+  }
+}

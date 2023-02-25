@@ -1,0 +1,21 @@
+@import './abstract/variables';
+@import './base/base';
+
+@import './components/logo';
+@import './components/burger';
+@import './components/language-switch';
+@import './components/theme-block';
+@import './components/buttons';
+@import './components/column-4-wrapper';
+@import './components/form';
+@import './components/social';
+
+@import './layout/header';
+@import './layout/nav';
+@import './layout/hero';
+@import './layout/skills';
+@import './layout/portfolio';
+@import './layout/video';
+@import './layout/price';
+@import './layout/contacts';
+@import './layout/footer';

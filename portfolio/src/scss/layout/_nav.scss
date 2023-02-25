@@ -1,0 +1,124 @@
+.nav {
+  --nav-pad: 80px 0 0 35px;
+  --nav-w: 620px;
+  --nav-h: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--first-color);
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: var(--nav-pad);
+  max-width: var(--nav-w);
+  height: var(--nav-h);
+  width: 100%;
+  overflow-y: auto;
+  animation-name: moveBackMenu;
+  animation-duration: 1s;
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 2;
+
+  &--visible {
+    animation-name: moveMenu;
+    animation-duration: 1s;
+    opacity: 1;
+    transform: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+    gap: 25px;
+    list-style: none;
+  }
+
+  &__link {
+    font-family: var(--font-f-2);
+    color: var(--second-color);
+    font-size: 2rem;
+    line-height: 1.8;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--link-hover);
+    }
+  }
+}
+
+.author {
+  color: var(--clr-secondary);
+  font-size: 1.6rem;
+}
+
+@media screen and (min-width: 480px) {
+  .nav {
+    --nav-pad: 134px 0 0 121px;
+
+    &__link {
+      font-family: var(--font-f-2);
+      font-size: 4rem;
+      line-height: 1.8;
+      font-weight: 700;
+    }
+  }
+}
+
+@media (min-width: 790px) {
+  .nav {
+    position: static;
+    display: block;
+    background-color: transparent;
+    padding: 0;
+    max-width: initial;
+    height: initial;
+    opacity: initial;
+    animation-name: none;
+    transform: none;
+    gap: 35px;
+
+    &__list {
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+    }
+
+    &__link {
+      font-size: var(--sm-font-size);
+      line-height: 2.5;
+      font-weight: 400;
+      color: var(--third-color);
+      font-family: var(--font-f);
+    }
+  }
+}
+
+/* Animations */
+
+@keyframes moveMenu {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes moveBackMenu {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,8 @@
+.theme-block {
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  background-image: var(--theme-icon);
+  background-repeat: no-repeat;
+  width: 43px;
+  height: 43px;
+}

@@ -1,0 +1,24 @@
+.button {
+  transition: all .2s ease;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.button--main {
+  background-color: var(--button-main-bg);
+  font-family: var(--font-f);
+  color: var(--);
+  border-radius: 4px;
+  width: 220px;
+  height: 55px;
+  font-size: var(--sm-font-size);
+  font-weight: 500;
+  line-height: 2;
+}
+
+.button--main:hover {
+  color: var(--button-main-clr-hov);
+	transform: translateY(-0.65em);
+  background-color: var(--button-main-bg-hover);
+}

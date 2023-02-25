@@ -1,0 +1,43 @@
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  list-style-type: none;
+
+  &::after {
+    content: "/";
+    position: absolute;
+    color: var(--third-color);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 50px;
+    top: 0;
+    left: 45%;
+  }
+
+  &__item {
+    position: relative;
+    list-style: none;
+
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--third-color);
+    font-weight: 700;
+    font-size: var(--sm-font-size);
+    line-height: 2.5;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    &--active {
+      color: var(--first-color);
+    }
+  }
+}

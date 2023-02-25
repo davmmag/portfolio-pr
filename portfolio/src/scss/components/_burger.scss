@@ -1,0 +1,92 @@
+.burger {
+  --burger-bg: #ffffff;
+  --burger-bg-active: #000000;
+
+  z-index: 2;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.burger__line {
+  position: absolute;
+  right: 0;
+  top: 51%;
+  width: 100%;
+  height: 3px;
+  background-color: var(--third-color);
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--third-color);
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, bottom 0.3s ease-in-out;
+}
+
+.burger::before {
+  top: 0px;
+}
+
+.burger::after {
+  bottom: 0px;
+}
+
+.burger--active {
+  width: 30px;
+  height: 30px;
+}
+
+.burger--active::before,
+.burger--active::after {
+  background-color: var(--third-color);
+  width: 2.5em;
+}
+
+.burger--active::before {
+  top: 50%;
+  transform: rotate(45deg);
+}
+
+.burger--active::after {
+  bottom: auto;
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+.burger--active .burger__line {
+  opacity: 0;
+}
+
+@media screen and (min-width: 480px) {
+  .burger {
+    width: 50px;
+    height: 28px;
+  }
+
+  .burger--active {
+    width: 50px;
+    height: 50px;
+  }
+  .burger--active::before,
+  .burger--active::after {
+    width: 4.5em;
+  }
+}
+
+@media screen and (min-width: 790px) {
+  .burger {
+    display: none;
+  }
+}

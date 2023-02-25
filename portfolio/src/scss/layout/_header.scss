@@ -1,0 +1,93 @@
+.header {
+  padding-top: 20px;
+  padding-bottom: 25px;
+  background: url(../../assets/img/small-bg.jpg);
+  background-position: center 0;
+  background-repeat: no-repeat;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 790px) {
+  .header {
+    background: var(--hero-bg);
+    background-position: center 0;
+    background-repeat: no-repeat;
+
+    &__container {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      height: auto;
+      gap: 40px;
+    }
+
+    &__nav {
+      justify-self: end;
+    }
+
+    &__block {
+      gap: 38px;
+    }
+  }
+}
+
+// .header {
+//   
+//   
+//   background-position: center 0;
+//   position: relative;
+// }
+
+// .header__container {
+//   display: flex;
+//   align-items: center;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+// }
+
+// .header__logo {
+//   margin-right: auto;
+// }
+
+// .header__nav {
+//   margin-right: 39px;
+// }
+
+// .header__lang-block {
+//   margin-right: 37px;
+// }
+
+// .header__theme {
+//   cursor: pointer;
+//   transition: all .2s ease-in-out;
+//   background-image: var(--theme-icon);
+//   background-repeat: no-repeat;
+//   width: 43px;
+//   height: 43px;
+// }
+
+
+// @media (max-width: 850px) {
+//   .header {
+//     
+//     
+//   }
+//   .header__nav {
+//     display: none;
+//   }
+
+//   .header__container {
+//       padding-right: 60px;
+//       padding-left: 60px;
+//   }

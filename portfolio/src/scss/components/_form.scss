@@ -1,0 +1,85 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+
+  &__email,
+  &__tel,
+  &__text {
+    display: inline-block;
+    width: 100%;
+    background: var(--form-bg);
+    border: 2px solid var(--color-mongoose);
+    transition: all .3s ease;
+    outline: none;
+    font-family: "Inter", sans-serif;
+    font-size: var(--sm-font-size);
+    font-weight: 400;
+    color: var(--second-color);
+  }
+
+  &__tel::placeholder,
+  &__email::placeholder,
+  &__text::placeholder {
+    font-family: "Inter", sans-serif;
+    font-size: var(--sm-font-size);
+    line-height: 2;
+    font-weight: 400;
+    color: var(--second-color);
+    opacity: 1;
+  }
+  &__email,
+  &__tel {
+    padding: 0 20px;
+    height: 50px;
+    line-height: 2.5;
+  }
+
+  &__text {
+    padding: 3px 20px;
+    height: 100px;
+    resize: none;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .form {
+    gap: 20px;
+
+    &__text {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 790px) {
+  .form {
+    align-items: flex-start;
+  }
+  .form__tel::placeholder,
+  .form__email::placeholder,
+  .form__text::placeholder {
+    font-family: "Inter", sans-serif;
+    font-size: var(--sm-font-size);
+    line-height: 2;
+    font-weight: 400;
+    color: var(--second-color);
+    opacity: 1;
+  }
+
+  .form__email,
+  .form__tel {
+    padding: 0 20px;
+    height: 50px;
+    line-height: 2.5;
+  }
+
+  .form__text {
+    padding: 12px 20px;
+    height: 100px;
+    resize: none;
+    margin-bottom: 10px;
+  }
+}
